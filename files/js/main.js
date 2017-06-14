@@ -1,15 +1,38 @@
 var buttons = document.querySelectorAll('span');
+var operators = ['+', '-', '*', '/', '%',];
 
 for (var i = 0; i < buttons.length; i++) {
     buttons[i].onclick = function(e){
-        var screen = document.querySelector('#screen')
-        var screenValue = screen.innerHTML
-        var buttonValue = this.innerHTML
+        var screen = document.querySelector('#screen');
+        var screenValue = screen.innerHTML;
+        var buttonValue = this.innerHTML;
 
         if (buttonValue == 'C') {
-            screen.innerHTML = ''
+            screen.innerHTML = '';
         }
 
-        // else if (buttonValue == )
+        else if (buttonValue == '=') {
+            var equation = screenValue;
+            equation = screen.innerHTML;
+            screen.innerHTML = eval(equation);
+        }
+
+        else if (operators.indexOf(buttonValue) > -1) {
+            var lastChar = screenValue[screenValue.length - 1]
+
+            if (screenValue != '' && operators.indexOf(lastChar) == -1 ) {
+                screen.innerHTML += buttonValue;
+            }
+            else if (screenValue == '' && buttonValue == '-'){
+                screen.innerHTML += buttonValue
+            }
+            if (operators.indexOf(lastChar) > -1 && screenValue.length > 1) {
+                screen.innerHTML = screenValue.replace(/.$/, buttonValue);
+            }
+        }
+
+        else {
+            screen.innerHTML += buttonValue;
+        }
     }
 }
