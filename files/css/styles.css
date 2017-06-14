@@ -21,7 +21,7 @@
 	float: left;
 }
 
-.top .screen {
+.top #screen {
 	height: 40px;
 	width: 212px;
 	
