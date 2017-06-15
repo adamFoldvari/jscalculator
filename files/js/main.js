@@ -1,11 +1,17 @@
 var buttons = document.querySelectorAll('span');
 var operators = ['+', '-', '*', '/', '%',];
+var wasEval = false;
 
 for (var i = 0; i < buttons.length; i++) {
     buttons[i].onclick = function(e){
         var screen = document.querySelector('#screen');
         var screenValue = screen.innerHTML;
         var buttonValue = this.innerHTML;
+
+        if (wasEval) {
+            screen.innerHTML = '';
+            wasEval = false;
+        }
 
         if (buttonValue == 'C') {
             screen.innerHTML = '';
@@ -15,6 +21,7 @@ for (var i = 0; i < buttons.length; i++) {
             var equation = screenValue;
             equation = screen.innerHTML;
             screen.innerHTML = eval(equation);
+            wasEval = true;
         }
 
         else if (operators.indexOf(buttonValue) > -1) {
