@@ -1,0 +1,14 @@
+#screen {
+    background: grey;
+    width: 255px;
+    -webkit-text-fill-color: white;
+    font-size: 3rem;
+    padding: 0px;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+body {
+    background: lightgrey;
+}
+
