@@ -1,6 +1,7 @@
 #screen {
     background: grey;
     width: 255px;
+    height: 50px;
     -webkit-text-fill-color: white;
     font-size: 3rem;
     padding: 0px;
